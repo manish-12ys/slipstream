@@ -74,14 +74,59 @@ Home is clock + wallpaper only. Natural wallpaper remains the hero. Dynamic Mate
 4. Implement one smallest complete vertical slice.
 5. Add/update tests.
 6. Run `dart format`, `flutter analyze`, and relevant tests.
-7. Build/install on device if Android/platform code changed.
+7. Build the APK and verify it by physically installing it on an Android phone if Android/platform code changed. An emulator and live Flutter device connection are not required.
 8. Update `20_TASK_BACKLOG.md` and `21_MASTER_TODO.md`.
 9. Update `22_PROJECT_STATUS.md` with evidence if milestone progress changed.
 10. Update `27_CHANGELOG.md` for material changes.
 11. Update ADR/API/data/design docs when contracts change.
 12. Report changed files, tests, build results, device verification and limitations.
 
-## 8. Never
+## 8. Physical-install verification checklist
+The primary device workflow is manual installation on a real Android phone. Run `flutter build apk --debug` (or the appropriate release build), transfer the APK from `build\app\outputs\flutter-apk\` to the phone, install it from the phone's file manager or package installer, and test it manually. Do not require an emulator, `flutter devices`, USB debugging, `flutter install`, or `flutter run`.
+
+For every launcher/platform change, check and record:
+
+### Setup and identity
+- [ ] The expected APK is built successfully and transferred to the phone.
+- [ ] The APK installs, opens, updates over the previous build, and can be uninstalled cleanly.
+- [ ] Slipstream appears as a selectable Home app.
+- [ ] Selecting another launcher and switching back works.
+- [ ] Pressing the physical or gesture-navigation Home action returns to Slipstream.
+- [ ] Rebooting the phone preserves the selected default launcher behavior.
+
+### Minimal home and appearance
+- [ ] Home shows only the clock and wallpaper by default.
+- [ ] Clock follows the device 12/24-hour setting and updates at a minute boundary.
+- [ ] Wallpaper loads; the fallback background appears if wallpaper access fails.
+- [ ] Light mode, dark mode, dynamic color, and fallback colors render correctly.
+- [ ] Portrait, landscape, small display, large display, and display/font scaling remain usable.
+
+### Gestures and navigation
+- [ ] Swipe right opens the productivity page.
+- [ ] Swipe left opens the Android widget page or its documented empty state.
+- [ ] Swipe up opens the app drawer.
+- [ ] Short, diagonal, slow, cancelled, and edge-origin swipes do not navigate accidentally.
+- [ ] Back from the drawer returns to the previous stable page.
+- [ ] Taps and scrolling inside interactive widgets are not stolen by page gestures.
+- [ ] Gesture alternatives and labels are usable with TalkBack and reduced motion enabled.
+
+### App drawer and native bridge
+- [ ] Drawer lists real launchable apps from the phone, alphabetically.
+- [ ] Search filters app labels locally and shows an empty state for no matches.
+- [ ] Tapping an app opens the correct package.
+- [ ] Disabled, uninstalled, or unavailable apps fail safely with a user-readable message.
+- [ ] Adding, removing, disabling, and updating an app does not crash the launcher.
+- [ ] Rotating the phone or backgrounding/foregrounding the app preserves stable state.
+- [ ] Killing and relaunching the process restores the expected launcher state.
+
+### Reliability, privacy, and evidence
+- [ ] Airplane mode does not break core launcher behavior.
+- [ ] No sensitive data, package errors, or stack traces appear in user-facing UI or logs.
+- [ ] Permission denial and unsupported API paths show a clear explanation and recovery path.
+- [ ] Capture Android version, device model, app version, test date, and pass/fail results.
+- [ ] Do not mark a device-gated task Done until the physical-device checks pass.
+
+## 9. Never
 - Mark work Done because code was generated.
 - Invent Android capabilities or permissions.
 - Use mock installed-app data in production.
@@ -91,5 +136,5 @@ Home is clock + wallpaper only. Natural wallpaper remains the hero. Dynamic Mate
 - Implement all features in one huge change.
 - Claim tests/builds passed unless actually run.
 
-## 9. Required completion report
+## 10. Required completion report
 Summarize user-visible behaviour, files changed, ticket IDs, commands/tests and results, device/API versions, limitations/risks and next recommended ticket.

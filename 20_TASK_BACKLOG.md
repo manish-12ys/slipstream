@@ -1,14 +1,14 @@
 # 20 — Detailed Task Backlog
 
 ## P0 — First usable launcher
-- [ ] T-001 Audit repository and baseline build.
-- [ ] T-002 Confirm package ID, min SDK and target SDK.
-- [ ] T-003 Register HOME intent and default launcher flow.
-- [ ] T-004 Build wallpaper home and locale-aware clock.
-- [ ] T-005 Implement gesture classifier and right/left/up navigation.
-- [ ] T-006 Implement native app discovery and typed DTO.
-- [ ] T-007 Build app drawer, alphabetical sort and search.
-- [ ] T-008 Implement app launch and package-change refresh.
+- [ ] T-001 Audit repository and baseline build. (Baseline recorded; device verification pending.)
+- [ ] T-002 Confirm package ID, min SDK and target SDK. (Package is still the template namespace; product decision pending.)
+- [ ] T-003 Register HOME intent and default launcher flow. (HOME identity registered; device role flow pending.)
+- [ ] T-004 Build wallpaper home and locale-aware clock. (Implemented; device verification pending.)
+- [ ] T-005 Implement gesture classifier and right/left/up navigation. (Implemented and unit/widget tested; device verification pending.)
+- [ ] T-006 Implement native app discovery and typed DTO. (Implemented; device verification pending.)
+- [ ] T-007 Build app drawer, alphabetical sort and search. (Implemented and widget tested; device verification pending.)
+- [ ] T-008 Implement app launch and package-change refresh. (Launch and native package event refresh implemented; physical-device verification pending.)
 - [ ] T-009 Build settings shell and Material 3 theme.
 - [ ] T-010 Persist settings and test process recreation.
 

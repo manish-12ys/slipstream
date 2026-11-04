@@ -4,21 +4,21 @@
 
 ## Current state (2026-11-04)
 - Product concept and initial documentation: drafted.
-- Expanded implementation plan and tracking docs: drafted.
-- Working codename: Slipstream (not final branding).
-- Flutter repository: not inspected in this task.
-- Android launcher implementation: not verified.
-- Build/test status: unknown until repo audit.
+- Repository audit completed: Flutter 3.47.7/Dart 3.13.5, Android SDK 36, Java 25.
+- Flutter/Kotlin bootstrap, launcher HOME identity, wallpaper-backed clock home, gesture navigation, native app discovery/launch, package-change refresh and app drawer are implemented.
+- Working codename: Slipstream (not final branding); package namespace remains `com.example.slipstream`.
+- Validation: `flutter analyze`, `flutter test`, and `flutter build apk --debug` pass.
+- Device verification: not completed because no Android device/emulator is connected in this environment.
 - Release readiness: not started.
 
 ## Milestones
 | Milestone | Status | Evidence required |
 |---|---|---|
-| M0 Repo audit | Not started | SDK versions and baseline build |
-| M1 Launcher role | Not started | Device test selecting default Home |
-| M2 Minimal home | Not started | Wallpaper + clock on device |
-| M3 Gestures | Not started | Gesture test suite |
-| M4 App drawer | Not started | Real PackageManager list and launch |
+| M0 Repo audit | Complete (code/build baseline) | Flutter doctor, baseline tests/analyze, SDK records |
+| M1 Launcher role | Implemented, device pending | Device test selecting default Home |
+| M2 Minimal home | Implemented, device pending | Wallpaper + clock on device |
+| M3 Gestures | Implemented, automated tests pass; device pending | Gesture test suite and device test |
+| M4 App drawer | Implemented, device pending | Real PackageManager list, launch and package-change refresh |
 | M5 Theme/settings | Not started | Dynamic/fallback theme tests |
 | M6 Productivity | Not started | Notes/tasks persistence tests |
 | M7 Native widgets | Not started | AppWidgetHost proof |
