@@ -126,7 +126,11 @@ For every launcher/platform change, check and record:
 - [ ] Capture Android version, device model, app version, test date, and pass/fail results.
 - [ ] Do not mark a device-gated task Done until the physical-device checks pass.
 
-## 9. Never
+## 9. Git and attribution rules
+- Do not add a Copilot co-author trailer or Copilot attribution to project commits.
+- Preserve the project's existing author and contributor attribution.
+
+## 10. Never
 - Mark work Done because code was generated.
 - Invent Android capabilities or permissions.
 - Use mock installed-app data in production.
@@ -136,5 +140,5 @@ For every launcher/platform change, check and record:
 - Implement all features in one huge change.
 - Claim tests/builds passed unless actually run.
 
-## 10. Required completion report
+## 11. Required completion report
 Summarize user-visible behaviour, files changed, ticket IDs, commands/tests and results, device/API versions, limitations/risks and next recommended ticket.
